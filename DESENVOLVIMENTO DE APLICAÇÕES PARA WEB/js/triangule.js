@@ -66,13 +66,6 @@ const drawTriangle = () => {
 
 // ---------------- ARROW FUNCTION vs ANONYMOUS
 
-// Changing the inputs redraws the triangle
-
-for (let id of INPUTS_SIZE_ID) {
-    document.querySelector(`#${id}`).addEventListener("input", drawTriangle);
-}
-drawTriangle();
-
 const INPUTS_SIZE_ID_GOTTEN = INPUTS_SIZE_ID.map((id) => {
     return document.getElementById(id);
 });
@@ -111,7 +104,6 @@ let defineWhichInputIsChanged = () => {
     function changeInputSelected(e) {
         // é this
         check = (BUTTONS.indexOf(this) + 1) / 3;
-        alert(check);
         if (check <= 1) {
             inputUsed = INPUTS_SIZE_ID_GOTTEN[0];
         } else if (check <= 2) {
@@ -124,10 +116,13 @@ let defineWhichInputIsChanged = () => {
         const TEXTOS_POSSIVEIS = ["DOBRAR", "DIVIDIR", "RESETAR"];
         if (this.textContent == TEXTOS_POSSIVEIS[0]) {
             inputUsed.value *= 2;
+            inputUsed.focus();
         } else if (this.textContent == TEXTOS_POSSIVEIS[1]) {
             inputUsed.value /= 2;
+            inputUsed.focus();
         } else if (this.textContent == TEXTOS_POSSIVEIS[2]) {
             inputUsed.value = 30;
+            inputUsed.focus();
         }
         console.log(this.textContent);
     }
@@ -138,3 +133,10 @@ let defineWhichInputIsChanged = () => {
 defineWhichInputIsChanged();
 
 // KeyPress is now deprecated.
+
+// Changing the inputs redraws the triangle
+
+for (let id of INPUTS_SIZE_ID) {
+    document.querySelector(`#${id}`).addEventListener("input", drawTriangle);
+}
+drawTriangle();
