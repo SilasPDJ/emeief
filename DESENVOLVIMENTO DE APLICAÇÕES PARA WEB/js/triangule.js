@@ -97,7 +97,7 @@ function keyup(evt) {
     }
 }
 //
-let buttons = [
+const BUTTONS = [
     ...document.querySelectorAll(
         "#interactive-actions > .canvas-actions.column-item > div > button"
     ),
@@ -105,10 +105,36 @@ let buttons = [
 
 // 3 para 1
 
-buttons.map((el) => {
-    el.addEventListener("click", function () {
-        alert("sasasa");
+//
+
+let defineWhichInputIsChanged = () => {
+    function changeInputSelected(e) {
+        // é this
+        check = (BUTTONS.indexOf(this) + 1) / 3;
+        alert(check);
+        if (check <= 1) {
+            inputUsed = INPUTS_SIZE_ID_GOTTEN[0];
+        } else if (check <= 2) {
+            inputUsed = INPUTS_SIZE_ID_GOTTEN[1];
+        } else if (check <= 3) {
+            inputUsed = INPUTS_SIZE_ID_GOTTEN[2];
+        } else {
+        }
+        // alert(inputUsed);
+        const TEXTOS_POSSIVEIS = ["DOBRAR", "DIVIDIR", "RESETAR"];
+        if (this.textContent == TEXTOS_POSSIVEIS[0]) {
+            inputUsed.value *= 2;
+        } else if (this.textContent == TEXTOS_POSSIVEIS[1]) {
+            inputUsed.value /= 2;
+        } else if (this.textContent == TEXTOS_POSSIVEIS[2]) {
+            inputUsed.value = 30;
+        }
+        console.log(this.textContent);
+    }
+    BUTTONS.forEach((el) => {
+        el = el.addEventListener("click", changeInputSelected);
     });
-});
+};
+defineWhichInputIsChanged();
 
 // KeyPress is now deprecated.
