@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Draw a right-angled triangle</title>
+    <link rel="stylesheet" href="css/draw_triangle.css">
+</head>
+
+<body>
+    <div id="container">
+        <div id="tips">
+            <h1> VISUALIZADOR DE TRIÂNGULO</h1>
+            <h2> COMO MUDAR VALORES MAIS RÁPIDO: </h2>
+            <h3>
+                <u>Pressione ALT + [1, 2, 3]</u>
+            </h3>
+            <h3><u>USE ARROWS</u></h3>
+            <h3><u>USE BOTÕES P/ DOBRAR ou DIVIDIR</u></h3>
+
+        </div>
+        <div id="interactive-actions">
+            <div class="canvas-inputs column-item">
+                <input id="a-side" type="number" placeholder="A" value="30" min="0" max="500" />
+                <input id="b-side" type="number" placeholder="B" value="40" min="0" max="500" />
+                <input id="c-side" type="number" placeholder="C" value="50" min="0" max="500" />
+            </div>
+            <div class="canvas-actions column-item">
+                <div class="three-buttons">
+                    <button class="btn-actions">DOBRAR</button>
+                    <button class="btn-actions">DIVIDIR</button>
+                    <button class="btn-actions">RESETAR</button>
+                </div>
+            </div>
+        </div>
+        <div id="container-canvas">
+            <canvas id="canvas" width="750px" height="750px"></canvas>
+        </div>
+    </div>
+
+    <script src="js/triangule.js"></script>
+</body>
+<!-- TODO: botão x2, /2 -->
+
+</html>
