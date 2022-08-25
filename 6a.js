@@ -1,6 +1,7 @@
 function sleep(ms) {
     return new Promise((resolve) => setTimeout(resolve, ms));
 }
+// listar matrícula por turma, escola....
 let toclicks = document.querySelectorAll(".icone-tabela-visualizar");
 for (i = 1; i < toclicks.length; i++) {
     toclicks[i].click();
@@ -10,7 +11,7 @@ for (i = 1; i < toclicks.length; i++) {
     input = document.querySelectorAll("#tabelaDados_filter > label > input")[1];
     input.value = 2023;
     dispatchEvent2Element(input);
-    await sleep(i * 7000);
+    await sleep(i * 8000);
     takescreenshot();
     break;
 }
@@ -26,7 +27,8 @@ function dispatchEvent2Element(element) {
 // taking screenshots
 function takescreenshot() {
     const screenshotTarget = document.getElementById("frmFicha");
-    text = document.querySelector("#sedUiModalWrapper_11title").textContent;
+    text = document.querySelector("#sedUiModalWrapper_13title").textContent;
+    // TODO: o numero acima fica incrementando toda hora, preciso selecionar dinamicamente
     text = text.slice(16).split(" -")[0];
 
     // gets the script...
