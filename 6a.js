@@ -11,7 +11,7 @@ for (i = 1; i < toclicks.length; i++) {
     input.value = 2023;
     dispatchEvent2Element(input);
     await sleep(i * 7000);
-
+    takescreenshot();
     break;
 }
 
