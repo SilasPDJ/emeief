@@ -24,23 +24,24 @@ function dispatchEvent2Element(element) {
 }
 
 // taking screenshots
-function takescreenshot() {}
-const screenshotTarget = document.getElementById("frmFicha");
-text = document.querySelector("#sedUiModalWrapper_11title").textContent;
-text = text.slice(16).split(" -")[0];
+function takescreenshot() {
+    const screenshotTarget = document.getElementById("frmFicha");
+    text = document.querySelector("#sedUiModalWrapper_11title").textContent;
+    text = text.slice(16).split(" -")[0];
 
-// gets the script...
-let script = document.createElement("script");
-script.setAttribute(
-    "src",
-    "https://cdn.jsdelivr.net/npm/html2canvas@1.0.0-rc.5/dist/html2canvas.min.js"
-);
-document.head.appendChild(script);
-// gets the script...
+    // gets the script...
+    let script = document.createElement("script");
+    script.setAttribute(
+        "src",
+        "https://cdn.jsdelivr.net/npm/html2canvas@1.0.0-rc.5/dist/html2canvas.min.js"
+    );
+    document.head.appendChild(script);
+    // gets the script...
 
-html2canvas(screenshotTarget).then((canvas) => {
-    let a = document.createElement("a");
-    a.download = text + ".png";
-    a.href = canvas.toDataURL("image/png");
-    a.click();
-});
+    html2canvas(screenshotTarget).then((canvas) => {
+        let a = document.createElement("a");
+        a.download = text + ".png";
+        a.href = canvas.toDataURL("image/png");
+        a.click();
+    });
+}
